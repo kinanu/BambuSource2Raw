@@ -1,11 +1,17 @@
-name: build
+name: Docker Image CI
 
-on: [push]
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
+      - uses: actions/checkout@v4
+      - name: Build the Docker image
         run: |
-          echo "Build"
+          docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+          ls /bambusource2raw -all
