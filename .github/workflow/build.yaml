@@ -1,0 +1,11 @@
+name: build
+
+on: [push]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        runs: |
+          echo "Build"
