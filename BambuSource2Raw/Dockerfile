@@ -1,5 +1,5 @@
 FROM ubuntu:20.04 as build
-RUN apt-get update && apt-get install -y unzip libcurl4 libcurl4-openssl-dev
+RUN apt-get update && apt-get install -y unzip libcurl4 libcurl4-openssl-dev build-essential
 RUN mkdir /bambusource2raw
 WORKDIR /bambusource2raw
 COPY BambuSource2Raw /bambusource2raw
