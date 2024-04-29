@@ -6,7 +6,7 @@ ldflags = -ldl $(shell curl-config --libs)
 deps = cJSON_Utils.h cJSON.h BambuTunnel.h
 obj = cJSON_Utils.o cJSON.o bambusource2raw.o
 
-FFMPEG_URL=https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+FFMPEG_URL=https://johnvansickle.com/ffmpeg/old-releases/ffmpeg-5.1.1-amd64-static.tar.xz
 FFMPEG_DOWNLOAD=/tmp/ffmpeg-release-amd64-static.tar.xz
 
 RTSP_SIMPLE_SERVER_URL=https://github.com/aler9/rtsp-simple-server/releases/download/v0.20.0/rtsp-simple-server_v0.20.0_linux_amd64.tar.gz
@@ -23,7 +23,7 @@ $(bin): $(obj)
 %.o: %.c $(deps)
 	@$(cc) $(cflags) -c $< -o $@
 
-$(outdir): 
+$(outdir):
 	-mkdir -p $(outdir)
 
 $(outdir)/$(bin): $(bin)
